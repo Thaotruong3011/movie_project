@@ -1,0 +1,229 @@
+.checkOut-content {
+  color: #333;
+  font-weight: 500;
+  font-family: "SF Medium", sans-serif;
+  .stepCheckOut {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    width: 75%;
+    padding: 15px;
+    position: fixed;
+    top: -1px;
+    left: -1px;
+    height: 80px;
+    ul {
+      font-weight: 700;
+      list-style-type: none;
+      height: 100%;
+      li {
+        padding-right: 2em;
+        display: block;
+        .stepNumber {
+          font-size: 20px;
+        }
+      }
+      .active {
+        border-top-color: #fb4226;
+        color: #fb4226;
+      }
+    }
+    .acount__info {
+      color: #9b9b9b;
+      padding-right: 10px;
+      img {
+        width: 30px;
+        border-radius: 25px;
+        margin-right: 10px;
+      }
+    }
+  }
+  .left__page {
+    width: 26%;
+    position: fixed;
+    left: -22%;
+    top: 80px;
+    background: #000;
+    height: 100%;
+    img {
+      width: 100%;
+      opacity: 0.8;
+      height: 100%;
+    }
+  }
+  .booking {
+    width: 26%;
+    position: fixed;
+    top: -1px;
+    right: -1px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    height: 100%;
+    z-index: 5;
+    background: #fff;
+
+    font-size: 14px;
+    .booking__content {
+      width: 100%;
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+    .info__ticket {
+      border-bottom: 1px dashed #e9e9e9;
+      margin-bottom: 12.5px;
+      padding-bottom: 15px;
+      label {
+        font-size: 12px;
+        color: #9b9b9b;
+      }
+      input {
+        border: none;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+    .total {
+      height: 80px;
+      font-size: 34px;
+      color: #44c020;
+      font-weight: 700;
+    }
+    .info__movie {
+      font-weight: 700;
+      font-size: 16px;
+      padding-bottom: 15px;
+      .ageType {
+        color: #fff;
+        background: #fb4226;
+        padding: 3px 7px;
+        border-radius: 4px;
+      }
+      p {
+        font-size: 14px;
+        font-weight: 500;
+        margin: 0;
+      }
+    }
+    .info__seat {
+      font-weight: 700;
+
+      .num__seat {
+        color: #fb4226;
+      }
+      .mini__total {
+        color: #44c020;
+      }
+    }
+    .right__notice {
+      padding: 10px 0;
+      font-size: 12px;
+      color: #9b9b9b;
+      text-align: center;
+      img {
+        width: 16px;
+        height: 16px;
+        margin-right: 10px;
+      }
+      .right__item {
+        color: #f79320;
+      }
+    }
+    .booking__btn {
+      button {
+        width: 100%;
+        color: #fff;
+        background: #afafaf;
+        font-size: 22px;
+        height: 60px;
+        background-image: linear-gradient(223deg, #b4ec51 0, #429321 100%);
+      }
+    }
+  }
+  .seat__area {
+    margin-top: 80px;
+    margin-left: 4%;
+    // min-height: 900px;
+    font-size: 16px;
+    width: 70%;
+    padding: 30px 10px 0;
+    .name__area {
+      .info__theater {
+        margin-bottom: 20px;
+        img {
+          width: 5%;
+          margin-right: 10px;
+        }
+        p {
+          margin: 0;
+        }
+        .date__movie {
+          color: #9b9b9b;
+          font-size: 14px;
+        }
+      }
+    }
+    .seats__map {
+      .seat {
+        ul {
+          list-style-type: none;
+
+          li {
+            margin: 0px 10px;
+            color: #727575;
+            height: 25px;
+            border-radius: 2px;
+            width: 40px;
+            height: 40px;
+            border: 1px solid #727575;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+          }
+        }
+        .seat-map {
+          ul {
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            padding-left: 0;
+            li {
+              width: 4%;
+              padding: 0;
+            }
+            .daDat {
+              background: #4a4a4a;
+            }
+            .dangChon {
+              background-image: linear-gradient(
+                223deg,
+                #b4ec51 0,
+                #429321 100%
+              );
+            }
+          }
+        }
+      }
+      .seat__note {
+        .color__seat {
+          width: 30px;
+          height: 100%;
+          // background: red;
+          border: 1px solid #727575;
+          border-radius: 2px;
+        }
+        .color__dangChon {
+          background-image: linear-gradient(223deg, #b4ec51 0, #429321 100%);
+        }
+        .color__daDat {
+          background: #4a4a4a;
+        }
+      }
+    }
+  }
+  .modal-block {
+    .modal-info {
+      p {
+        color: red;
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+.footer {
+  background-color: #222;
+  color: #949494;
+  & .footer__content {
+    max-width: 940px;
+    margin: 0 auto;
+    p {
+      font-size: 80%;
+      color: #fff;
+    }
+    .tix__link {
+      font-size: 12px;
+      font-weight: 700;
+      color: #949494;
+      text-decoration: none;
+      line-height: 2.3;
+      &:hover {
+        color: #fff;
+      }
+    }
+    .brand__link {
+      padding: 8px 8px 8px 0px;
+      margin: 0;
+      img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+      }
+      &:hover img {
+        opacity: 0.8;
+      }
+    }
+    .app__social__link {
+      padding-right: 5px;
+      margin: 0;
+      img {
+        height: 30px;
+        width: auto;
+      }
+    }
+  }
+}

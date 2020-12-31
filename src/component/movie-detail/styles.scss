@@ -1,0 +1,382 @@
+.movieDetail {
+  background: rgb(10, 32, 41);
+  margin-top: 60px;
+  font-family: "SF Medium", sans-serif;
+  .detail__content {
+    max-width: 940px;
+    margin: 0 auto;
+  }
+  .main__top {
+    color: #fff;
+    position: relative;
+
+    // background-image: url(../../assets/img/filmPoster/gia-dinh-croods-ky-nguyen-moi-the-croods-new-age-p-16058560833034.png);
+    .background__img {
+      // background: linear-gradient(to top, rgb(10, 32, 41), transparent 90%);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      .backgroundImg {
+        width: 100%;
+        height: 100%;
+        filter: blur(15px);
+        opacity: 0.8;
+      }
+    }
+
+    .filmPosterTop {
+      z-index: 5;
+      // img {
+      //   border-radius: 4px;
+      //   width: 100%;
+      // }
+      width: 100%;
+      position: relative;
+      height: 100%;
+      &:hover .film__detail .film__hover,
+      &:hover .film__detail .img__film .btn__play {
+        opacity: 1;
+        transition: all 0.5s;
+      }
+      &:hover .film__info {
+        // visibility: hidden;
+        display: none;
+      }
+      &:hover .film__button {
+        // visibility: visible;
+        display: block;
+      }
+      .film__detail {
+        cursor: pointer;
+        display: block;
+        width: 100%;
+        height: 300px;
+        padding: 0;
+        margin: 0;
+
+        .img__film {
+          width: 100%;
+          border-radius: 4px;
+          position: relative;
+          height: 100%;
+          img {
+            border-radius: 4px;
+            display: block;
+            width: 100%;
+            height: 100%;
+          }
+          .btn__play {
+            width: 50px;
+            height: 50px;
+            padding: 0;
+            background: transparent;
+            border: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            img {
+              width: 100%;
+            }
+            &:focus {
+              box-shadow: none;
+            }
+          }
+        }
+        .film__point {
+          position: absolute;
+          top: 5px;
+          right: 10%;
+          z-index: 5;
+          font-size: 18px;
+          font-weight: 700;
+          color: #fff;
+          background-color: rgba(12, 27, 54, 0.8);
+          border: 1px solid #1f2e46;
+          border-radius: 4px;
+          padding: 2px 5px;
+          line-height: 1;
+          .point__number {
+            margin: 0;
+            padding: 0;
+          }
+          .film__star {
+            margin: 0;
+            padding: 0;
+
+            img {
+              max-width: 8px;
+            }
+          }
+        }
+        .film__hover {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(to top, #000, transparent 100%);
+          border-radius: 4px;
+          opacity: 0;
+        }
+      }
+    }
+    .filmNameTop {
+      z-index: 5;
+      p {
+        font-size: 24px;
+        margin: 5px 0;
+        font-weight: 500;
+      }
+      .typeP {
+        font-size: 18px;
+        background-color: #00ac4d;
+        padding: 2px 10px;
+        color: #fff;
+        border-radius: 4px;
+        margin-right: 5px;
+      }
+      span {
+        font-size: 14px;
+      }
+      button {
+        background-color: #fb4226;
+        color: #fff;
+        padding: 5px 15px;
+        margin-top: 20px;
+        font-size: 20px;
+        a {
+          color: #fff;
+          text-decoration: none;
+        }
+      }
+    }
+    .filmPoint {
+      z-index: 5;
+      .circle__point {
+        svg {
+          width: 60%;
+          .CircularProgressbar-text {
+            fill: #fff;
+            font-size: 35px;
+          }
+          .CircularProgressbar-path {
+            stroke: #7ed321;
+          }
+          .CircularProgressbar-trail {
+            stroke: #3a3a3a;
+          }
+        }
+      }
+      .film__star {
+        img {
+          max-width: 25px;
+        }
+      }
+      .comment {
+        font-weight: 500;
+      }
+    }
+  }
+  .main__info {
+    color: #fff;
+    min-height: 600px;
+    padding-bottom: 30px;
+    nav {
+      border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .nav-item {
+        border: none;
+        font-family: "SF Medium", sans-serif;
+        font-weight: 500;
+        font-size: 20px;
+        color: #fff;
+        line-height: 24px;
+      }
+      .active {
+        color: #fa5238;
+        font-size: 24px;
+        background: transparent;
+      }
+    }
+    .tab-content {
+      margin-top: 60px;
+      .tabpane-LichChieu {
+        padding-top: 30px;
+        max-width: 840px;
+        margin: 0 auto;
+        min-height: 600;
+        background-color: #fff;
+        color: #949494;
+        border-radius: 3px;
+        padding: 0;
+        .block__LichChieu {
+          min-height: 500px;
+          .showTime__border {
+            // width: 100%;
+            // height: 100%;
+            // border: 1px solid #ebebec;
+            // border-radius: 4px;
+            // margin: 0;
+            .brandFilm {
+              padding: 2px;
+              height: 100%;
+              .nav {
+                padding: 15px;
+                height: 100%;
+                border-right: 1px solid #ebebec;
+                .nav-item {
+                  padding: 5px 0px 5px 2px;
+                  padding-bottom: 20px;
+                  border-bottom: 1px solid #ebebec;
+                  color: #949494;
+                  .active {
+                    background: none;
+                    & img,
+                    & span {
+                      opacity: 1;
+                    }
+                  }
+                  a {
+                    padding: 2px 0;
+                    text-decoration: none;
+                    font-size: 16px;
+                    color: #000;
+                    // padding: 5px;
+                    font-weight: 700;
+                    span {
+                      margin-left: 10px;
+                      opacity: 0.5;
+                    }
+                    &:hover img,
+                    &:hover span {
+                      opacity: 1;
+                    }
+                    img {
+                      max-width: 30%;
+                      // max-height: 50%;
+                      opacity: 0.5;
+                    }
+                  }
+                }
+              }
+            }
+            .dayAndtime__film {
+              .day__film {
+                font-size: 14px;
+                color: #000;
+                font-weight: 700;
+                border-bottom: 1px solid #ebebec;
+                .tab-content {
+                  // background: red;
+                  width: 100%;
+                  .tab-pane {
+                    div .active {
+                      opacity: 1;
+                    }
+                    .theater__item {
+                      opacity: 0.5;
+                      cursor: pointer;
+                      p {
+                        margin: 0;
+                      }
+                      .date {
+                        font-size: 24px;
+                      }
+                    }
+                  }
+                }
+              }
+              .time__film {
+                border-bottom: 1px solid #ebebec;
+                .time__film__content {
+                  font-size: 20px;
+                  color: #000;
+                  font-weight: 700;
+                  // transition: all 0.5;
+                  .movieInfo {
+                    cursor: pointer;
+                    img {
+                      width: 50px;
+                      height: 50px;
+                    }
+                    .wrap__info {
+                      margin-left: 10px;
+                      font-weight: 700;
+                      color: #333;
+                      .brand_name {
+                        font-weight: 700;
+                        color: #9c9c9c;
+                      }
+                      .theater__adress {
+                        font-size: 12px;
+                        color: #9b9b9b;
+                        font-weight: 500;
+                      }
+                      a {
+                        font-size: 14px;
+                        color: #fa5238;
+                        font-weight: 500;
+                      }
+                    }
+                  }
+                  .movie__showtimes {
+                    padding: 15px 0;
+                    font-size: 16px;
+                    button {
+                      margin-top: 10px;
+                      border: 1px solid #e4e4e4;
+                      padding: 5px 15px;
+                      font-size: 14px;
+                      color: #9b9b9b;
+                      font-weight: 600;
+                      border-radius: 6px;
+                      background-color: rgba(246, 246, 246, 0.5);
+                      &:hover .time__start {
+                        color: #fb4226;
+                      }
+                      .time__start {
+                        color: #108f3e;
+                        font-size: 19px;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        .tabpane-DanhGia {
+          .blockReview {
+            border-radius: 4px;
+            background-color: #fff;
+            max-width: 580px;
+            color: #4a4a4a;
+            margin: 0 auto;
+            padding: 0.5em;
+            .imgReviewer {
+              border-radius: 25px;
+              height: 36px;
+              width: 36px;
+            }
+            .reviewText {
+              margin: 0;
+            }
+            .starReview {
+              margin: 0;
+              img {
+                height: 24px;
+                opacity: 0.5;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

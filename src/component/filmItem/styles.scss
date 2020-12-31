@@ -1,0 +1,112 @@
+// .film {
+//     width: 100%;
+//     position: relative;
+//     &:hover .film__detail .film__hover,
+//     &:hover .film__detail .img__film .btn__play {
+//       opacity: 1;
+//       transition: all 0.5s;
+//     }
+//     &:hover .film__info {
+//       display: none;
+//     }
+//     &:hover .film__button {
+//       display: block;
+//     }
+//     .film__detail {
+//       cursor: pointer;
+//       width: 100%;
+
+//       .img__film {
+//         width: 100%;
+//         border-radius: 4px;
+//         position: relative;
+//         img {
+//           border-radius: 4px;
+//           display: block;
+//           width: 100%;
+//         }
+//         .btn__play {
+//           width: 50px;
+//           height: 50px;
+//           padding: 0;
+//           background: transparent;
+//           border: none;
+//           position: absolute;
+//           top: 50%;
+//           left: 50%;
+//           transform: translate(-50%, -50%);
+//           opacity: 0;
+//           img {
+//             width: 100%;
+//           }
+//           &:focus {
+//             box-shadow: none;
+//           }
+//         }
+//       }
+//       .film__point {
+//         position: absolute;
+//         top: 5px;
+//         right: 5px;
+//         z-index: 5;
+//         font-size: 18px;
+//         font-weight: 700;
+//         color: #fff;
+//         background-color: rgba(12, 27, 54, 0.8);
+//         border: 1px solid #1f2e46;
+//         border-radius: 4px;
+//         padding: 2px 5px;
+//         line-height: 1;
+//         .point__number {
+//           margin: 0;
+//           padding: 0;
+//         }
+//         .film__star {
+//           margin: 0;
+//           padding: 0;
+
+//           img {
+//             max-width: 8px;
+//           }
+//         }
+//       }
+//       .film__hover {
+//         position: absolute;
+//         top: 0;
+//         left: 0;
+//         width: 100%;
+//         height: 100%;
+//         background: linear-gradient(to top, #000, transparent 100%);
+//         border-radius: 4px;
+//         opacity: 0;
+//       }
+//     }
+//     .film__info {
+//       padding-top: 10px;
+//       .typeP {
+//         background-color: #00ac4d;
+//         padding: 2px 7px;
+//         color: #fff;
+//         border-radius: 4px;
+//         margin-right: 5px;
+//       }
+//       font-weight: 700;
+//       line-height: 22px;
+//       margin: 0;
+//       overflow: hidden;
+//       .film__time {
+//         font-size: 12px;
+//         font-weight: 300;
+//         color: #9b9b9b;
+//       }
+//     }
+//     .film__button {
+//       width: 100%;
+//       background-color: #fb4226;
+//       color: #fff;
+//       font-size: 18px;
+//       padding: 10px;
+//       margin-top: 10px;
+//       display: none;
+//     }
+//   }

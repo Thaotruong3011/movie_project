@@ -1,0 +1,155 @@
+.showTimes {
+  font-size: 14px;
+  color: #333;
+  font-family: "SF Text Regular", sans-serif;
+  .block__break {
+    height: 120px;
+    img {
+      width: 100%;
+    }
+  }
+  .showTime__content {
+    padding-top: 30px;
+    max-width: 940px;
+    margin: 0 auto;
+    height: 705px;
+    .showTime__border {
+      border: 1px solid #ebebec;
+      border-radius: 4px;
+      .brandFilm {
+        padding: 2px;
+        height: 100%;
+        .nav {
+          padding: 20px 15px;
+          height: 100%;
+          width: 87px;
+          border-right: 1px solid #ebebec;
+          .nav-item {
+            padding: 5px 2px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ebebec;
+            .active {
+              background: none;
+              & img {
+                opacity: 1;
+              }
+            }
+            a {
+              padding: 2px;
+              text-decoration: none;
+              &:hover img {
+                opacity: 1;
+              }
+              img {
+                max-width: 100%;
+                max-height: 100%;
+                opacity: 0.5;
+              }
+            }
+          }
+        }
+      }
+      .listTheater {
+        height: 650px;
+        overflow-y: scroll;
+        border-right: 1px solid #ebebec;
+        .tab-content {
+          padding: 0;
+          min-height: 90px;
+          .tab-pane {
+            .theater__item {
+              min-height: 90px;
+              border-bottom: 1px solid #ebebec;
+              padding: 0 10px;
+              opacity: 0.5;
+              cursor: pointer;
+              &.active {
+                opacity: 1;
+              }
+              img {
+                width: 50px;
+                height: 50px;
+              }
+              .wrap__info {
+                margin-left: 10px;
+                font-weight: 700;
+                color: #333;
+                .brand_name {
+                  font-weight: 700;
+                  color: #9c9c9c;
+                }
+                .theater__adress {
+                  font-size: 12px;
+                  color: #9b9b9b;
+                  font-weight: 500;
+                }
+                a {
+                  font-size: 14px;
+                  color: #fa5238;
+                  font-weight: 500;
+                }
+              }
+            }
+          }
+        }
+      }
+      .listTime {
+        height: 650px;
+        overflow-y: scroll;
+        .time__film {
+          border-bottom: 1px solid #ebebec;
+          font-size: 14px;
+          color: #000;
+          font-weight: 700;
+          // transition: all 0.5;
+          .movieInfo {
+            cursor: pointer;
+            img {
+              width: 10%;
+            }
+            .movie__title {
+              .ageType {
+                background-color: #fb4226;
+                padding: 2px 7px;
+                color: #fff;
+                border-radius: 4px;
+                margin-right: 5px;
+              }
+              .movie__length {
+                font-size: 12px;
+                color: #9b9b9b;
+                font-weight: 500;
+              }
+            }
+          }
+          .movie__showtimes {
+            padding: 15px 0;
+            font-size: 16px;
+            .listTimeDetail {
+              // flex-wrap: wrap;
+              .time__detail {
+              }
+            }
+            button {
+              margin-top: 10px;
+              border: 1px solid #e4e4e4;
+              padding: 5px 15px;
+              font-size: 14px;
+              color: #9b9b9b;
+              font-weight: 600;
+              border-radius: 6px;
+              background-color: rgba(246, 246, 246, 0.5);
+              &:hover .time__start {
+                color: #fb4226;
+              }
+              .time__start {
+                color: #108f3e;
+                font-size: 19px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
