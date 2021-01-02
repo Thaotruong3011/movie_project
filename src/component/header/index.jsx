@@ -4,14 +4,15 @@ import location from "../../assets/img/location-header.png";
 import avatar from "../../assets/img/avatar.png";
 import useStyles from "./styles";
 import { NavLink } from "react-router-dom";
-
 import Button from "@material-ui/core/Button";
-import { Fragment } from "react";
-import { Menu, MenuItem, Select } from "@material-ui/core";
+import { Menu, MenuItem } from "@material-ui/core";
+import { redirectRequest } from "../../redux/actions/common.actions";
+import { useDispatch } from "react-redux";
 function Header() {
   const classes = useStyles();
   const [user, setUser] = useState(null);
   const [anchorEl, setAnchorEl] = useState(null);
+  const dispatch = useDispatch();
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -21,6 +22,7 @@ function Header() {
   const handleLogOut = () => {
     localStorage.removeItem("user");
     setUser(null);
+    dispatch(redirectRequest(""));
   };
   function renderAccount() {
     if (user !== null) {

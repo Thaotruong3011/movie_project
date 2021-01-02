@@ -9,11 +9,7 @@ import { getMovieTicketList } from "../../redux/actions/booking.actions";
 import { postBookingRequest } from "../../redux/actions/booking.actions";
 import Loading from "../loading";
 import { getCinemaListRequest } from "../../redux/actions/cinema.actions";
-import useStyles from "./index.js";
-import Modal from "@material-ui/core/Modal";
-import Backdrop from "@material-ui/core/Backdrop";
-import Fade from "@material-ui/core/Fade";
-import { Row } from "react-bootstrap";
+import ModalComponent from "../modal";
 function CheckOutContent(props) {
   const params = useParams();
   const showtimeCode = params.showTimeCode;
@@ -26,16 +22,9 @@ function CheckOutContent(props) {
   const bookingStatus = useSelector((state) => state.booking.bookingStatus);
   const user = props.user;
   const [userBooking, setUserBooking] = useState(user);
-
   const history = useHistory();
   let dangChon = false;
-  const classes = useStyles();
-  const handleClose = () => {
-    dispatch({
-      type: "SET_BOOKING_STATUS",
-    });
-    history.go();
-  };
+  // const classes = useStyles();
   function sumMoney() {
     let sumMoney = 0;
     if (seatList) {
@@ -250,79 +239,7 @@ function CheckOutContent(props) {
               </button>
             </div>
           </div>
-          <div className="modal-block">
-            <Modal
-              aria-labelledby="transition-modal-title"
-              aria-describedby="transition-modal-description"
-              className={classes.modal}
-              open={bookingStatus}
-              onClose={handleClose}
-              closeAfterTransition
-              BackdropComponent={Backdrop}
-              BackdropProps={{
-                timeout: 500,
-              }}
-            >
-              <Fade in={bookingStatus}>
-                <div className={`${classes.paper}`}>
-                  <h2 id="transition-modal-title" className="text-center">
-                    Đặt vé thành công!
-                  </h2>
-
-                  <div
-                    id="transition-modal-description"
-                    className={`lead modal-info ${classes.paper_block}`}
-                  >
-                    <p className={classes.paper__info}>Thông tin vé</p>
-                    <p>
-                      Tài khoản người đặt:{" "}
-                      <span className={classes.paper__info}>
-                        {user.taiKhoan}
-                      </span>
-                    </p>
-
-                    <p>
-                      Email:{" "}
-                      <span className={classes.paper__info}>
-                        {userBooking.email}
-                      </span>
-                    </p>
-                    <p>
-                      SDT:{" "}
-                      <span className={classes.paper__info}>
-                        {userBooking.soDT}
-                      </span>
-                    </p>
-
-                    <p>
-                      Số ghế:{" "}
-                      <span className={classes.paper__info}>
-                        {renderNumChair()}
-                      </span>
-                    </p>
-                    <p>
-                      Tên phim:{" "}
-                      <span className={classes.paper__info}>
-                        {detailFilm.tenPhim}
-                      </span>
-                    </p>
-                    <p>
-                      Cụm rạp:{" "}
-                      <span className={classes.paper__info}>
-                        {detailFilm.tenCumRap}
-                      </span>
-                    </p>
-                    <p>{detailFilm.diaChi}</p>
-                    <p className={classes.paper__info}>
-                      <span>{detailFilm.ngayChieu}</span> -{" "}
-                      <span>{detailFilm?.gioChieu}</span> -
-                      <span>{detailFilm?.tenRap.toUpperCase()}</span>
-                    </p>
-                  </div>
-                </div>
-              </Fade>
-            </Modal>
-          </div>
+        <ModalComponent user={user} stringNum={renderNumChair()} userBooking={userBooking}/>
         </div>
       );
     } else {

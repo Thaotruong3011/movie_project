@@ -1,0 +1,21 @@
+.modal-content {
+  .modal-body {
+    font-weight: 900;
+    .paper {
+      background-color: #fff;
+      border: 0.5px solid #000;
+      // boxShadow: theme.shadows[10],
+      // padding: theme.spacing(2, 4, 3),
+      color: #3a3a3a;
+      border-radius: 4px;
+      font-size: 14px;
+      .paper_block {
+        font-size: 14px;
+        .paper__info {
+          font-weight: 500;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

@@ -30,7 +30,7 @@ const theme = createMuiTheme({
     color_orange_3: "#f79320",
     color_blue_0: "#0000ff",
     color_blue_1: "#60c5ef",
-    color_blue_2: "#4a90e2",
+    color_blue_2: "#4 a90e2",
     color_yellow_0: "#ffff00",
     color_lime_0: "#00ff00",
     color_lime_1: "#00ac4d",

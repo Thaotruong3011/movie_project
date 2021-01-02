@@ -8,9 +8,10 @@ export function loginRequest(user, history) {
       user
     )
       .then((res) => {
-        history.goBack();
-        console.log(history);
+        // if (history.location.pathname !== "/signup") history.goBack();
+        // history.goBack();
         localStorage.setItem("user", JSON.stringify(res.data));
+        dispatch(redirectRequest("/"));
       })
       .catch((error) => {
         dispatch(getMessageError(error.response.data));
@@ -18,13 +19,14 @@ export function loginRequest(user, history) {
   };
 }
 function getMessageError(message) {
+  console.log(message);
   return {
     type: "MESSENGER_LOGIN",
     payload: message,
   };
 }
-export function signUpRequest(user, history) {
-  console.log(3);
+
+export function signUpRequest(user) {
   user = { ...user, maNhom: "GP05", maLoaiNguoiDung: "KhachHang" };
 
   return (dispatch) => {
@@ -33,12 +35,18 @@ export function signUpRequest(user, history) {
       user
     )
       .then(() => {
-        alert("Đăng ký thành công");
-        dispatch(redirectRequest("/login"));
+        console.log(5);
+        dispatch({
+          type: "SET_VALIDATE",
+        });
+        // dispatch(redirectRequest("/login"));
       })
       .catch((err) => {
-        console.log(err.response);
-        dispatch(getMessageError(err.response.data));
+        console.log(6);
+        dispatch({
+          type: "EDIT_MESSAGE",
+          payload: err.response.data,
+        });
       });
   };
 }

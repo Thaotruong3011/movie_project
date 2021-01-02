@@ -1,17 +1,26 @@
 import { TextField } from "@material-ui/core";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useHistory } from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
 import logo from "../../assets/img/group@2x.png";
+import { redirectRequest } from "../../redux/actions/common.actions";
 import { signUpRequest } from "../../redux/actions/user.actions";
+import Modal from "react-bootstrap/Modal";
+
 import "./styles.scss";
 function SignUp() {
   const [user, setUser] = useState({});
   const message = useSelector((state) => state.common.message);
-  const messageLogin = useSelector((state) => state.common.messageLogin);
   const linkRedirect = useSelector((state) => state.common.linkRedirect);
+  const validate = useSelector((state) => state.common.validateForm);
+  let validateForm = false;
   const dispatch = useDispatch();
-  const history = useHistory();
+  const handleCloseModal = () => {
+    dispatch({
+      type: "SET_VALIDATE",
+    });
+    // history.go();
+  };
   function handleChange(event) {
     const { name, value } = event.target;
     if (name === "email") {
@@ -64,10 +73,7 @@ function SignUp() {
       if (validateEmail(user.email)) {
         if (validateMatKhau(user.matKhau)) {
           if (validateSDT(user.soDt)) {
-            dispatch({
-              type: "EDIT_MESSAGE",
-              payload: "",
-            });
+            validateForm = true;
           }
         }
       }
@@ -79,105 +85,134 @@ function SignUp() {
     if (ValidateUser(user)) {
       event.preventDefault();
     }
-    if (!message && ValidateUser(user)) {
-      dispatch(signUpRequest(user, history));
+
+    if (validateForm) {
+      dispatch(signUpRequest(user));
+      dispatch({
+        type: "EDIT_MESSAGE",
+        payload: "",
+      });
     }
   }
   function renderMessage() {
     if (message) return message;
-    else if (messageLogin) return messageLogin;
     return "Đăng ký để được nhiều ưu đãi, mua vé và bảo mật thông tin!";
   }
   if (linkRedirect) {
     return <Redirect push to={`${linkRedirect}`} />;
-  } else
-    return (
-      <div className="background">
-        <div className="SignUp">
-          <img src={logo} alt="logo" className="sigin-header" />
-          <div
-            className={`signin-message my-0 py-0 ${
-              message || messageLogin ? "alert alert-danger py-2" : " "
-            }`}
-          >
-            {renderMessage()}
-          </div>
-          <div className="form-content d-flex flex-column align-items-center ">
-            <form>
-              <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                id="taiKhoan"
-                label="Tài Khoản"
-                name="taiKhoan"
-                autoComplete="taiKhoan"
-                autoFocus
-                onChange={handleChange}
-                // error={userValidate.accountVali}
-              />
+  } else dispatch(redirectRequest(""));
+  return (
+    <div className="background">
+      <div className="SignUp">
+        <img src={logo} alt="logo" className="sigin-header" />
+        <div
+          className={`signin-message my-0 py-0 ${
+            message ? "alert alert-danger py-2" : " "
+          }`}
+        >
+          {renderMessage()}
+        </div>
+        <div className="form-content d-flex flex-column align-items-center ">
+          <form>
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="taiKhoan"
+              label="Tài Khoản"
+              name="taiKhoan"
+              autoComplete="taiKhoan"
+              autoFocus
+              onChange={handleChange}
+              // error={userValidate.accountVali}
+            />
 
-              <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                name="matKhau"
-                label="Mật Khẩu (lớn hơn 6 kí tự)"
-                type="password"
-                id="matKhau"
-                autoComplete="current-matKhau"
-                onChange={handleChange}
-              />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="matKhau"
+              label="Mật Khẩu (lớn hơn 6 kí tự)"
+              type="password"
+              id="matKhau"
+              autoComplete="current-matKhau"
+              onChange={handleChange}
+            />
 
-              <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                name="email"
-                label="Email"
-                type="email"
-                id="email"
-                onChange={handleChange}
-              />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="email"
+              label="Email"
+              type="email"
+              id="email"
+              onChange={handleChange}
+            />
 
-              <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                id="hoTen"
-                label="Họ Tên"
-                name="hoTen"
-                type="text"
-                autoFocus
-                onChange={handleChange}
-                // error={userValidate.accountVali}
-              />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="hoTen"
+              label="Họ Tên"
+              name="hoTen"
+              type="text"
+              autoFocus
+              onChange={handleChange}
+              // error={userValidate.accountVali}
+            />
 
-              <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                id="soDt"
-                label="Số Điện Thoại"
-                name="soDt"
-                type="text"
-                autoFocus
-                onChange={handleChange}
-              />
+            <TextField
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="soDt"
+              label="Số Điện Thoại"
+              name="soDt"
+              type="text"
+              autoFocus
+              onChange={handleChange}
+            />
 
-              <button className="btn" onClick={handleSignUp}>
-                Đăng Ký
-              </button>
-            </form>
-          </div>
+            <button className="btn" onClick={handleSignUp}>
+              Đăng Ký
+            </button>
+          </form>
+          <p className="p-0 m-0 mt-2">
+            Bạn đã có tài khoản, mời đăng nhập{" "}
+            <NavLink to="/login">tại đây</NavLink>
+            {"!"}
+          </p>
         </div>
       </div>
-    );
+      <div className="modal-block">
+        <Modal
+          className="modal__content"
+          show={validate}
+          onHide={handleCloseModal}
+        >
+          <Modal.Body>
+            <div className="paper">
+              <p id="transition-modal-title" className="text-center">
+                Chúc mừng Bạn đã đăng ký thành công!
+              </p>
+            </div>
+          </Modal.Body>
+          <Modal.Footer>
+            <NavLink to="/login" onClick={handleCloseModal}>
+              Đồng ý
+            </NavLink>
+          </Modal.Footer>
+        </Modal>
+      </div>
+    </div>
+  );
 }
 
 export default SignUp;

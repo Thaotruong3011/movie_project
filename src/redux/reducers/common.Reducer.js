@@ -3,6 +3,7 @@ const initialState = {
   message: "",
   messageLogin: "",
   linkRedirect: null,
+  validateForm: false,
 };
 const commonReducer = (state = initialState, action) => {
   let { type, payload } = action;
@@ -21,6 +22,10 @@ const commonReducer = (state = initialState, action) => {
     }
     case "REDIRECT": {
       return { ...state, linkRedirect: payload };
+    }
+    case "SET_VALIDATE": {
+      const validate = !state.validateForm;
+      return { ...state, validateForm: validate };
     }
     default:
       return state;

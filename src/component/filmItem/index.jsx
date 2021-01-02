@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import ModalVideo from "react-modal-video";
-import examplePoster from "../../assets/img/examplefilm.png";
 import playIcon from "../../assets/img/play-video.png";
 import star1 from "../../assets/img/star1.png";
 import start12 from "../../assets/img/star1.2.png";
@@ -35,7 +34,6 @@ function FilmItem(props) {
   const movie = props.movie;
 
   const handleOnClick = () => {
-    console.log(movie);
     setRedirect(true);
   };
   if (redirect) {
