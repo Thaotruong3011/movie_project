@@ -8,13 +8,12 @@ import playIcon from "../../assets/img/play-video.png";
 import "../../../node_modules/react-modal-video/scss/modal-video.scss";
 import Dropdown from "react-bootstrap/Dropdown";
 import "./styles.scss";
-import useStyles from "./styles.js";
 import { Redirect } from "react-router-dom";
 function CarouselArea() {
   const [isOpen, setOpen] = useState(false);
   const [linkYoutube, setLink] = useState("");
   const [redirect, setRedirect] = useState(false);
-  const classes = useStyles();
+
   const handleOpenModal = (link) => {
     setLink(link);
     setOpen(true);
@@ -26,7 +25,7 @@ function CarouselArea() {
     return <Redirect push to="/phim/123" />;
   } else {
     return (
-      <div className={`carouselAndsearch ${classes.carouselAndSearch}`}>
+      <div className={`carouselAndsearch`}>
         <div className="CarouselArea">
           <Carousel className=" h-100 w-100" interval={5000}>
             <Carousel.Item className="carousel__item">
