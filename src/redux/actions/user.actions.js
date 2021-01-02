@@ -8,10 +8,16 @@ export function loginRequest(user, history) {
       user
     )
       .then((res) => {
-        // if (history.location.pathname !== "/signup") history.goBack();
-        // history.goBack();
+        // if (linkRedirect.indexOf("checkout") !== -1) {
+        //   // dispatch(redirectRequest(`${linkRedirect}`));
+        //   // console.log(3);
+        // } else {
+        //   // dispatch(redirectRequest("/"));
+        //   console.log(4);
+        // }
+        // // console.log(linkRedirect.index("checkout"));
+        history.goBack();
         localStorage.setItem("user", JSON.stringify(res.data));
-        dispatch(redirectRequest("/"));
       })
       .catch((error) => {
         dispatch(getMessageError(error.response.data));
@@ -39,7 +45,7 @@ export function signUpRequest(user) {
         dispatch({
           type: "SET_VALIDATE",
         });
-        // dispatch(redirectRequest("/login"));
+        dispatch(redirectRequest("/login"));
       })
       .catch((err) => {
         console.log(6);

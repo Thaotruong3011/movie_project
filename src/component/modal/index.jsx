@@ -2,22 +2,35 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Modal from "react-bootstrap/Modal";
 import { Button } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import "./styles.scss";
 function ModalComponent(props) {
   const dispatch = useDispatch();
   //   const history=use
   const detailFilm = useSelector((state) => state.booking.thongTinPhim);
   const bookingStatus = useSelector((state) => state.booking.bookingStatus);
+  const seatList = useSelector((state) => state.booking.danhSachGhe);
   const user = props.user;
-  const numChair = props.numChair;
   const userBooking = props.userBooking;
+  const history = useHistory();
   const handleCloseModal = () => {
     dispatch({
       type: "SET_BOOKING_STATUS",
     });
-    // history.go();
+    history.go();
   };
+  function renderNumChair() {
+    const gheDangChon = seatList.filter((ghe) => {
+      return ghe.dangChon === true;
+    });
+    let stringNum = "";
+    for (let ghe of gheDangChon) {
+      stringNum = stringNum + " " + ghe.tenGhe + ",";
+    }
+    stringNum = stringNum.slice(0, -1);
+
+    return stringNum;
+  }
   return (
     <div>
       <div className="modal-block">
@@ -51,7 +64,8 @@ function ModalComponent(props) {
                 </p>
 
                 <p>
-                  Số ghế: <span className="paper__info">{numChair}</span>
+                  Số ghế:{" "}
+                  <span className="paper__info">{renderNumChair()}</span>
                 </p>
                 <p>
                   Tên phim:{" "}

@@ -22,7 +22,9 @@ function CheckOutContent(props) {
   const bookingStatus = useSelector((state) => state.booking.bookingStatus);
   const user = props.user;
   const [userBooking, setUserBooking] = useState(user);
+  const [stringNum, setStringNum] = useState("");
   const history = useHistory();
+
   let dangChon = false;
   // const classes = useStyles();
   function sumMoney() {
@@ -87,6 +89,7 @@ function CheckOutContent(props) {
       stringNum = stringNum + " " + ghe.tenGhe + ",";
     }
     stringNum = stringNum.slice(0, -1);
+
     return stringNum;
   }
   function onChange(e) {
@@ -104,6 +107,8 @@ function CheckOutContent(props) {
         };
       });
       dispatch(postBookingRequest(showtimeCode, listBooking, history));
+      setStringNum(renderNumChair());
+     
     }
   }
   useEffect(() => {
@@ -239,7 +244,11 @@ function CheckOutContent(props) {
               </button>
             </div>
           </div>
-        <ModalComponent user={user} stringNum={renderNumChair()} userBooking={userBooking}/>
+          <ModalComponent
+            user={user}
+            stringNum={stringNum}
+            userBooking={userBooking}
+          />
         </div>
       );
     } else {
